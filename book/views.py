@@ -1,7 +1,5 @@
 from django.contrib.auth.models import User
 from rest_framework import viewsets, permissions
-# from permissions import NotCreateAndIsAdminUser
-# from rest_framework.permissions import IsAdminUser,IsAuthenticated
 from book.models import Book, Author
 from book.serializers import BookSerializer, AuthorSerializer, UserSerializer
 
@@ -33,7 +31,7 @@ class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
-    # overwriting creat permission for Author
+    # overwriting creat permission for usercreation
     def get_permissions(self):
         if self.action in ['update', 'partial_update', 'destroy', 'list']:
             self.permission_classes = [permissions.IsAuthenticated, ]
