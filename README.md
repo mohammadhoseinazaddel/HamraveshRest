@@ -1,6 +1,7 @@
 # django_rest_challenge
 ## this app is full-featured basic Django REST API with below features
 
+
 * class-based
 * jwt_Authentication
 * drf-yasg(swagger)
