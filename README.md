@@ -28,8 +28,13 @@ run the server with
 ```bash
 python manage.py runserver
 ```
+for creating superuser
+```bash
+python manage.py creatsuperuser
+```
+and choose your username and pass
 
-open your browsers by defal it runs on (http://127.0.0.1:8000)
+##### open your browsers by defal it runs on (http://127.0.0.1:8000)
 ![img.png](readme-images/img2.png)
 
 ### for using swagger
