@@ -17,6 +17,7 @@ new user and auther
 ## Installation
 clone (https://gitlab.com/nmzistg/django_rest_challenge) repo
 
+
 #### install requirments
 ```bash
 pip install -r requirements.txt
