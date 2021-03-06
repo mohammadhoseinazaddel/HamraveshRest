@@ -1,5 +1,5 @@
 # django_rest_challenge
-## this code is full-featured basic Django REST API with blow featured
+## this app is full-featured basic Django REST API with below features
 
 * class-based
 * jwt_Authentication
