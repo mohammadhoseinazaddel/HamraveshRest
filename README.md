@@ -5,6 +5,10 @@
 * jwt_Authentication
 * drf-yasg(swagger)
 * user serializer
+* model unit test 
+
+#### _future features:_
+* API unit tests
 
 this django app provide API for authenticated users to _get_  _create_ _delete_ _edit_ books and adminusers can create 
 new user and auther 
