@@ -21,6 +21,12 @@ clone (https://gitlab.com/nmzistg/django_rest_challenge) repo
 ```bash
 pip install -r requirements.txt
 ```
+**in some scared cases you need install `djangorestframework-simplejwt` manually
+beside of it some new `PyJWT` versions are buggy just use recommanded version in requirment.text**
+```bash
+djangorestframework-simplejwt==4.4.0
+PyJWT==1.7.1
+```
 for migrations database in terminal run
 ```bash
 python manage.py makemigrations
