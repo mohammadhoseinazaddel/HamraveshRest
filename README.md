@@ -28,7 +28,7 @@ python manage.py shell_plus --notebook
 #### _future features:_
 * API unit tests
 
-this django app provide API for authenticated users to _get_  _create_ _delete_ _edit_ books and adminusers can create 
+this django app provide API for authenticated users to _get_  _create_ _delete_ _edit_ container apps and adminusers can create 
 new user and auther 
 
 
