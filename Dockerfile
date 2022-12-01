@@ -1,14 +1,15 @@
-# Base off the official python image
-# Define a common stage for dev and prod images called base
+
 FROM python:3.10 as base
-# Set environment variables
+
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
-# Create a user to avoid running containers as root in production
+
 RUN addgroup --system web \
     && adduser --system --ingroup web web\
+    && pip install --upgrade pip\\
     && pip install djangorestframework-simplejwt==4.4.0\
     && pip install PyJWT==1.7.1
+USER root
 # Install os-level dependencies (as root)
 RUN apt-get update && apt-get install -y -q --no-install-recommends \
   # dependencies for building Python packages
@@ -24,9 +25,7 @@ USER web
 WORKDIR /home/web/code/
 # Copy the python depencencies list for pip
 COPY --chown=web:web ./requirements/base.txt requirements/base.txt
-# Switch to the root user temporary, to grant execution permissions.
-USER root
-# Install python packages at system level
+
 RUN pip install --no-cache-dir -r requirements.txt
 
 CMD ["python3", "manage.py", "runserver"]
