@@ -1,3 +1,5 @@
+#### to run this project you can use Dokcerfile or manually run below the
+
 to test django fast you can use
 ```
 pip install django-extensions
