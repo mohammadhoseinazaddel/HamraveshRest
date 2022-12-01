@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from book.models import Author, Book
+from container_apps.models import Author, ContainerApps
 from django.contrib.auth.models import User
 
 
@@ -23,8 +23,8 @@ class UserSerializer(serializers.ModelSerializer):
         return user
 
 
-class BookSerializer(serializers.ModelSerializer):
+class ContainerAppsSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Book
+        model = ContainerApps
         fields = '__all__'
         depth = 1

@@ -1,13 +1,19 @@
 from django.contrib.auth.models import User
 from rest_framework import viewsets, permissions
-from book.models import Book, Author
-from book.serializers import BookSerializer, AuthorSerializer, UserSerializer
+from container_apps.models import ContainerApps, Author
+from container_apps.serializers import ContainerAppsSerializer, AuthorSerializer, UserSerializer
 
 
-class BookViewSet(viewsets.ModelViewSet):
-    queryset = Book.objects.all()
-    serializer_class = BookSerializer
+class ContainerAppsViewSet(viewsets.ModelViewSet):
+    queryset = ContainerApps.objects.all()
+    serializer_class = ContainerAppsSerializer
     http_method_names = ['get', 'post', 'put', 'delete', 'creat']
+    permission_classes = (permissions.IsAuthenticated,)
+
+class AppRunner(viewsets.ModelViewSet):
+    queryset = ContainerApps.objects.all()
+    serializer_class = ContainerAppsSerializer
+    http_method_names = ['post']
     permission_classes = (permissions.IsAuthenticated,)
 
 
