@@ -1,8 +1,11 @@
 from django.contrib.auth.models import User
+from commander import command_utils
 from rest_framework import viewsets, permissions
 from container_apps.models import ContainerApps, Author
 from container_apps.serializers import ContainerAppsSerializer, AuthorSerializer, UserSerializer
+import logging
 
+logger = logging.getLogger('hamdocker-view.error_classes')
 
 class ContainerAppsViewSet(viewsets.ModelViewSet):
     queryset = ContainerApps.objects.all()
@@ -11,11 +14,13 @@ class ContainerAppsViewSet(viewsets.ModelViewSet):
     permission_classes = (permissions.IsAuthenticated,)
 
 class AppRunner(viewsets.ModelViewSet):
-    queryset = ContainerApps.objects.all()
-    serializer_class = ContainerAppsSerializer
-    http_method_names = ['post']
-    permission_classes = (permissions.IsAuthenticated,)
-
+    queryset = ContainerApps.objects.filter(name=name)
+    
+    try:
+        command_output=command_utils.call_stub(by_shell=True, timeout=280)
+        logger.info("creating your app finished with ","output%s"%command_output.cout)
+    except Exception as e:
+        logger.error(msg = e)
 
 class AuthorViewSet(viewsets.ModelViewSet):
     queryset = Author.objects.all()
