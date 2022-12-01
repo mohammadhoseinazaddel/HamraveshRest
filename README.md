@@ -1,5 +1,7 @@
-#### to run this project you can use Dokcerfile or manually run below the
-
+#### to run this project you can use Dokcerfile or run manually guidance 
+```
+docker exec -it {dockerid} sh -c "python manage.py createsuperuser"
+```
 to test django fast you can use
 ```
 pip install django-extensions
