@@ -19,6 +19,7 @@ RUN apt-get update && apt-get install -y -q --no-install-recommends \
   # cleaning up unused files to reduce the image size
   && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
   && rm -rf /var/lib/apt/lists/*
+  && apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
 # Switch to the non-root user
 USER web
 # Create a directory for the source code and use it as base path
