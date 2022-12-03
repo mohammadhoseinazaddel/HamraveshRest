@@ -14,6 +14,7 @@ RUN addgroup --system web \
 
 RUN apt-get update && apt-get install -y -q --no-install-recommends \
   && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
+  && apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin\
   && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /home/web/code/
