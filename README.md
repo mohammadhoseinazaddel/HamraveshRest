@@ -46,6 +46,16 @@ beside of it some new `PyJWT` versions are buggy just use recommanded version in
 djangorestframework-simplejwt==4.4.0
 PyJWT==1.7.1
 ```
+
+```
+docker run -d -p 5432:5432 -v postgres-data:/var/lib/postgresql/data `
+           --name postgres postgres
+```
+
+```
+createdb -U postgres mydb
+```
+
 for migrations database in terminal run
 ```bash
 python manage.py makemigrations
