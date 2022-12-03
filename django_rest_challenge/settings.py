@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'django_rest_challenge.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres13',
+        'NAME': 'mydb',
         'USER': 'postgres',
         'PASSWORD': 'postgres',
         'HOST': '0.0.0.0',
