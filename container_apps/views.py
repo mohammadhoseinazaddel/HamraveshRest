@@ -14,10 +14,12 @@ class ContainerAppsViewSet(viewsets.ModelViewSet):
     permission_classes = (permissions.IsAuthenticated,)
 
 class AppRunner(viewsets.ModelViewSet):
-    queryset = ContainerApps.objects.filter(name=name)
-    
+    queryset = ContainerApps.objects.filter()
+    serializer_class = ContainerAppsSerializer
+    http_method_names = ['get', 'post', 'put', 'delete', 'creat']
+
     try:
-        command_output=command_utils.call_stub(by_shell=True, timeout=280)
+        command_output=command_utils.call_stub("ps -a",by_shell=True, timeout=280)
         logger.info("creating your app finished with ","output%s"%command_output.cout)
     except Exception as e:
         logger.error(msg = e)

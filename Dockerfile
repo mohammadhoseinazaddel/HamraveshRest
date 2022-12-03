@@ -7,7 +7,7 @@ USER root
 
 RUN addgroup --system web \
     && adduser --system --ingroup web web\
-    && pip install --upgrade pip\\
+    && pip install --upgrade pip\
     && pip install djangorestframework-simplejwt==4.4.0\
     && pip install PyJWT==1.7.1
 

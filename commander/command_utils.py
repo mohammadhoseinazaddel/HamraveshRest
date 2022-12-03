@@ -3,10 +3,9 @@ import hashlib
 import sys
 import time
 import random
-
 import subprocess32
 
-from error_classes import SysCommandError, SysCommandTimeout
+from commander.error_classes import SysCommandError, SysCommandTimeout
 
 def call_stub(cmd, by_shell=False, ignore_return_code=False, cwd=None, timeout=180, no_log=False):
     """ Executes a shell command
@@ -36,7 +35,7 @@ def call_stub(cmd, by_shell=False, ignore_return_code=False, cwd=None, timeout=1
         cout, cerr = proc.communicate(timeout=timeout)
         return_code = proc.returncode
 
-        if ignore_return_code is False and return_code is not 0:
+        if ignore_return_code is False and return_code != 0:
             raise SysCommandError(return_code, cout, cerr, cmd)
     except subprocess32.TimeoutExpired:
         raise SysCommandTimeout(cmd, timeout)
